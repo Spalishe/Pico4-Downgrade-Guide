@@ -69,6 +69,16 @@ NOTE: If you using Arch linux, you can skip this, installing [edl-git](https://a
 yay -S edl-git
 ```
 
+### FIRMWARE
+Since firmware didn't fit into Git LFS, i had to push it to MEGA
+Link: <https://mega.nz/file/O4YUVIzT#1nMOwnv_2IWvwDgikRoqwsP8ktIStX33AUYQmGTceyU>
+If link got exploded, you can contact me in discord (@spalishe)
+
+You also can download original downgrader from [here](https://drive.google.com/file/d/1Ii5kvOR7aooE-sv-v3GCeCSk7OvGNSJ4/view?usp=sharing) and [here](http://corntube.net/index.php/s/fWTHAQ6Y4RWSz86)    (or [here](http://corntube.net/index.php/s/CdtS2jLDMYPcwj4) for CHINA version)
+Firmware will be located in /helper/FW_Downgrade.zip
+
+**You need to move this archive to ./data/FW_Downgrade.zip**
+
 ## Reboot
 
 Firstly reboot your helmet to EDL mode:

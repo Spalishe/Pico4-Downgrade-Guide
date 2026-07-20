@@ -5,3 +5,6 @@ edl_config.json
 data/flash
 ./data/flash
 data/flash/*
+data/FW_Downgrade.zip
+./data/FW_Downgrade.zip
+
