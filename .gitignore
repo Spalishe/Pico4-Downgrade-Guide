@@ -2,3 +2,6 @@
 backup
 backup/*
 edl_config.json
+data/flash
+./data/flash
+data/flash/*

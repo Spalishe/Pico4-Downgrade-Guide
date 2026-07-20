@@ -2,7 +2,7 @@ Guide how to downgrade Pico 4 in Linux using [edl](https://github.com/bkerler/ed
 
 ---
 
-# ⚠️ Warning ⚠️
+# ⚠️ WARNING ⚠️
 
 WARNING – USE AT YOUR OWN RISK
 
@@ -90,4 +90,40 @@ You can later restore this backup by casting
 edl wl ./path/to/backup/ --loader=prog_firehose_ddr.elf --memory=ufs
 ```
 
-GUIDE WRITING WIP TAKE YOUR TIME PLEASE
+## Install
+
+Run sh:
+```
+./install.sh
+```
+
+Script will give you instructions, be kind to follow those.
+
+## UNBRICKING
+
+There is a chance that you somehow broke something.
+Those scripts will only work if you have backup.
+
+### GPT
+You can test your GPT table by casting
+```
+edl printgpt --memory=ufs --loader=data/prog_firehose_ddr.elf
+```
+If you getting empty table, it means your GPT table got corrupted or smth else happened to it.
+```
+./UNBRICK/gpt_restore.sh
+```
+Script waits to all backup data to be placed in ./backup/
+Script must be run in this same directory.
+
+### BOOT ISSUE
+If you successfully patched all the things, but your bootloader just sits and does nothing and after little while shuts down this is it.
+```
+./UNBRICK/bootloader.sh
+```
+Script waits to all backup data to be placed in ./backup/
+Script must be run in this same directory.
+
+# LICENSE
+
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](https://github.com/Spalishe/Pico4-Downgrade-Guide/blob/main/LICENSE) file for details.
