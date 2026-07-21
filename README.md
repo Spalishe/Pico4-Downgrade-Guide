@@ -79,6 +79,13 @@ Firmware will be located in /helper/FW_Downgrade.zip
 
 **You need to move this archive to ./data/FW_Downgrade.zip**
 
+## Repo
+Clone this repository.
+```
+git clone https://github.com/Spalishe/Pico4-Downgrade-Guide
+cd Pico4-Downgrade-Guide
+```
+
 ## Reboot
 
 Firstly reboot your helmet to EDL mode:
