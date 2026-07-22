@@ -139,6 +139,7 @@ echo "-----------------------------------------------------------------"
 cd "$FLASH_DIR"
 
 FLASH_FILES=$(ls lun*_*.bin 2>/dev/null || true)
+FLASH_BLACKLIST=("xbl" "abl")
 
 if [ -z "$FLASH_FILES" ]; then
 	echo "ERROR: no files in flash folder (lunX_*.bin)"
@@ -146,6 +147,19 @@ if [ -z "$FLASH_FILES" ]; then
 fi
 
 for file in $FLASH_FILES; do
+	skip_file=false
+	for blacklist_item in "${FLASH_BLACKLIST[@]}"; do
+		if [[ "$file" == *"$blacklist_item"* ]]; then
+			echo "Skipping $blacklist_item."
+			skip_file=true
+			break
+		fi
+	done
+
+	if [ "$skip_file" = true ]; then
+		continue
+	fi
+
 	LUN_NUM=$(echo "$file" | cut -d'_' -f1 | sed 's/lun//')
 	PART_NAME=$(echo "$file" | cut -d'_' -f2- | sed 's/\.bin//')
 
