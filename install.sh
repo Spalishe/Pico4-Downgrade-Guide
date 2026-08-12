@@ -90,7 +90,7 @@ read -p "Enter choice (1 or 2): " USER_MODEL_CHOICE
 if [ "$USER_MODEL_CHOICE" = "1" ]; then
 	FIREHOSE_FILE="$DATA_DIR/prog_firehose_ddr.elf"
 	echo "Selected: Normal (prog_firehose_ddr.elf will be used)"
-elif [ "$USER_EDL_CHOICE" = "2" ]; then
+elif [ "$USER_MODEL_CHOICE" = "2" ]; then
 	FIREHOSE_FILE="$DATA_DIR/prog_firehose_lite.elf"
 	echo "Selected: Pro (prog_firehose_lite.elf will be used)"
 else
