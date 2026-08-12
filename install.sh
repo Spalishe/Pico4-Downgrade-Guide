@@ -14,7 +14,6 @@ FLASH_DIR="$DATA_DIR/flash"
 FIREHOSE_FILE="$DATA_DIR/prog_firehose_ddr.elf"
 PASSWORD="socibzsv83nc7"
 
-# Добавлен lsusb в список зависимостей
 for cmd in adb unzip edl lsusb; do
 	if ! command -v $cmd &>/dev/null; then
 		echo "ERROR: Tool '$cmd' not installed."
@@ -23,7 +22,7 @@ for cmd in adb unzip edl lsusb; do
 done
 
 echo "================================================================="
-echo "                    Pico 4 Downgrader OS 5.4.0                   "
+echo "                        Pico 4 Downgrader                        "
 echo "================================================================="
 echo ""
 
@@ -83,8 +82,24 @@ if [ $RUN_FROM_EDL -eq 0 ]; then
 	fi
 fi
 
+echo "Please select your helmet model:"
+echo "1) Normal (Pico 4)"
+echo "2) Pro (Pico 4 Pro)"
 echo ""
-echo "Unpacking 5.4.0 Flash..."
+read -p "Enter choice (1 or 2): " USER_MODEL_CHOICE
+if [ "$USER_MODEL_CHOICE" = "1" ]; then
+	FIREHOSE_FILE="$DATA_DIR/prog_firehose_ddr.elf"
+	echo "Selected: Normal (prog_firehose_ddr.elf will be used)"
+elif [ "$USER_EDL_CHOICE" = "2" ]; then
+	FIREHOSE_FILE="$DATA_DIR/prog_firehose_lite.elf"
+	echo "Selected: Pro (prog_firehose_lite.elf will be used)"
+else
+	echo "ERROR: Invalid choice. Exiting."
+	exit 1
+fi
+
+echo ""
+echo "Unpacking Flash..."
 rm -rf "$FLASH_DIR"
 mkdir -p "$FLASH_DIR"
 
